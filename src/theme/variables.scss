@@ -31,6 +31,10 @@ $colors: (
   dark:       #222
 );
 
+$background-color: transparent; //배경
+$toolbar-background: rgba(0, 0, 0, 0.8); //헤더
+$text-color: #fff; //텍스트
+$list-border-color: transparent; //list border
 
 // App iOS Variables
 // --------------------------------------------------
