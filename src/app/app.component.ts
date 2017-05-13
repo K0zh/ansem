@@ -11,12 +11,21 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class MyApp {
   rootPage:any = TabsPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+  constructor(
+    private platform: Platform,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen
+  ) {
+    this.initializeApp();
+  }
+  
+  initializeApp() {
+    this.platform.ready().then(() => {
+      //this.statusBar.backgroundColorByHexString('#171717');
+      this.statusBar.styleDefault();
+      setTimeout(() => {
+        this.splashScreen.hide();
+      }, 100);
     });
   }
 }
