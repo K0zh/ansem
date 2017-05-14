@@ -1,0 +1,25 @@
+/*
+ * Nanum Myeongjo (Korean) http://www.google.com/fonts/earlyaccess
+ */
+$nanum-myeongjo-font-path: $font-path !default;
+
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  font-style: normal;
+  font-weight: 400;
+  src: local("NanumMyeongjo"), 
+       local("NanumMyeongjo-Regular"), 
+       url("#{$nanum-myeongjo-font-path}/NanumMyeongjo-Regular.woff2") format("woff2"),
+       url("#{$nanum-myeongjo-font-path}/NanumMyeongjo-Regular.woff") format("woff"),
+       url("#{$nanum-myeongjo-font-path}/NanumMyeongjo-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  font-style: normal;
+  font-weight: 600;
+  src: local("NanumMyeongjo"), 
+       local("NanumMyeongjo-Bold"), 
+       url("#{$nanum-myeongjo-font-path}/NanumMyeongjo-Bold.woff2") format("woff2"),
+       url("#{$nanum-myeongjo-font-path}/NanumMyeongjo-Bold.woff") format("woff"),
+       url("#{$nanum-myeongjo-font-path}/NanumMyeongjo-Bold.ttf") format("truetype");
+}

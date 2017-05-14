@@ -16,20 +16,19 @@ import { SQLite } from '@ionic-native/sqlite';
 
 import { CalendarModule } from "ion2-calendar";
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+import { EtcPage } from '../pages/etc/etc';
 import { TabsPage } from '../pages/tabs/tabs';
-
 
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    TabsPage,
     HomePage,
-    TabsPage
+    ListPage,
+    EtcPage
   ],
   imports: [
     CalendarModule,
@@ -39,10 +38,10 @@ import { TabsPage } from '../pages/tabs/tabs';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    TabsPage,
     HomePage,
-    TabsPage
+    ListPage,
+    EtcPage
   ],
   providers: [
     StatusBar,

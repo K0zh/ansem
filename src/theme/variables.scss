@@ -77,6 +77,8 @@ $list-border-color: transparent; //list border
 
 // Fonts
 // --------------------------------------------------
-
+@import "../assets/fonts/NanumMyeongjo";
+$font-family-ios-base: "Nanum Myeongjo";
+$font-family-md-base: "Nanum Myeongjo";
 @import "roboto";
 @import "noto-sans";
