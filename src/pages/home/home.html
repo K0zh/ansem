@@ -10,14 +10,13 @@
 </video>
 
 <ion-content>
-  <div id="bg_black">
-    <ion-list>
-      <ion-list-header>
-        나눔명조
-      </ion-list-header>
-      <ion-item>나눔명조 </ion-item>
-      <ion-item>가나다라마바사 아자차카타파하</ion-item>
-      <ion-item>나눔명조 테스트</ion-item>
-    </ion-list>
+
+   <div id="bg_black" style="position: relative;">
+    <div style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -30%); min-width: 90%;">
+      <h1 text-center ion-text>오늘 하루는 어땠어? 가나다라마바사ㅇㅁㅇㅁㄴㅇ</h1>
+      <p ion-text text-right padding>- 안셈님이 질문합니다</p>
+    </div>
+    <button ion-button block color="danger" style="position: absolute; bottom: 10%; left: 10%; width: 80%;" (click)="openPosts()">작성하기</button>
   </div>
+  
 </ion-content>

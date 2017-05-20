@@ -13,8 +13,44 @@
 </ion-header>
 
 
-<ion-content padding>
-  <button ion-button icon-only (click)="daysConfig()">
-    <ion-icon name="calendar"></ion-icon>
-  </button>
+<ion-content>
+  <ion-item>
+      <ion-datetime color="light" displayFormat="YYYY년 MM월" [(ngModel)]="pickDate"></ion-datetime>
+  </ion-item>
+   <button ion-button icon-only (click)="daysConfig()">
+      <ion-icon name="calendar"></ion-icon>
+    </button>  
+  
+  <ion-list>
+    <ion-item>
+      <button ion-item>
+       <h3>질문</h3>
+        <p>날짜</p>
+      </button>
+    </ion-item>
+    <ion-item>
+      <button ion-item>
+       <h3>질문</h3>
+        <p>날짜</p>
+      </button>
+    </ion-item>
+    <ion-item>
+      <button ion-item>
+       <h3>질문</h3>
+        <p>날짜</p>
+      </button>
+    </ion-item>
+    <ion-item>
+      <button ion-item>
+       <h3>질문</h3>
+        <p>날짜</p>
+      </button>
+    </ion-item>
+    <ion-item>
+      <button ion-item>
+       <h3>질문</h3>
+        <p>날짜</p>
+      </button>
+    </ion-item>
+  </ion-list>
 </ion-content>

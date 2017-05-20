@@ -9,14 +9,15 @@ import {CalendarController} from "ion2-calendar/dist";
   templateUrl: 'list.html',
 })
 export class ListPage {
-
-  days:Array<any> = [];
+  pickDate: any;
+  days: Array<any> = [];
   
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private calendarCtrl: CalendarController
   ) {
+    this.pickDate = "2017-05";
   }
 
   ionViewDidLoad() {

@@ -1,5 +1,16 @@
 page-list {
-  
+
+  ion-content {
+    background:#000 !important;
+  }
+  ion-list {
+    background: #333 
+  }
+
+  Button ion-item {
+    border-left: 2px solid #e02041 !important;
+    padding-left: 10px;
+  }
 }
 
 
