@@ -42,8 +42,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.3.7",
-    "@ionic/cli-plugin-cordova": "1.1.2",
-    "@ionic/cli-plugin-ionic-angular": "1.1.2",
+    "@ionic/cli-plugin-cordova": "^1.1.2",
+    "@ionic/cli-plugin-ionic-angular": "^1.1.2",
     "typescript": "2.2.1"
   },
   "description": "안셈 - 질문일기 / 마음속의 생각 / 다이어리"
