@@ -1,17 +1,37 @@
 page-list {
-  ion-content {
-    //background-image: url('../assets/video/bg_video_2.jpg');
-    //background-size: cover;
+  
+  .scroll-content {
+    overflow-y: hidden;
   }
-
+  
+  ion-content {
+    position: relative;
+    height: 100%;
+  }
+  
+  .pick-date {
+    text-align: center;
+    color: #fff;
+  }
+  
   ion-col {
     overflow: hidden !important;
   }
   
+  ion-list {
+    overflow-y: auto;
+    height: 89%;
+  }
+  
   ion-card {
-    //background-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    
+    ion-item {
+      min-height: 5rem !important;
+      background-color: transparent !important;
+    }
     p {
-      //color: #fff !important;
+      color: #222 !important;
       
       &.date {
         //background-color: color($colors, danger);
@@ -26,10 +46,6 @@ page-list {
     }
   }
 
-  #bg_black {
-    height: 100%;
-    //background: url("../assets/images/bg_black.png") 0 0 repeat;
-  }
 }
 
 
