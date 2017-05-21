@@ -6,30 +6,30 @@
 
 
 <ion-content>
-  <div id="bg_black" style="position: relative;">
+  <div id="bg_black">
   <ion-list >
     <ion-item>
       <ion-label>질문 시간 설정</ion-label>
-      <ion-datetime color="light" displayFormat="HH:mm a" [(ngModel)]="pickTime" item-width="80%"></ion-datetime>
+      <ion-datetime displayFormat="HH:mm a" [(ngModel)]="pickTime"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>배경음악</ion-label>
       <ion-toggle checked="true"></ion-toggle>
     </ion-item>
     <ion-item>
-      <button ion-button full color="dark">앱정보</button>
+      <button ion-button full>앱정보</button>
     </ion-item>
     <ion-item>
-      <button ion-button full color="dark">초기화</button>
+      <button ion-button full>초기화</button>
     </ion-item>
     <ion-item>
-      <button ion-button full color="dark">앱 평가하기</button>
+      <button ion-button full>앱 평가하기</button>
     </ion-item>
     <ion-item>
-      <button ion-button full color="dark">백업/복구</button>
+      <button ion-button full>백업/복구</button>
     </ion-item>
     <ion-item>
-      <button ion-button full color="dark" (click)="openQuestion()">질문하기</button>
+      <button ion-button full (click)="openQuestion()">질문하기</button>
     </ion-item>
   </ion-list>
   </div>

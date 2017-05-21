@@ -4,54 +4,119 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
-  <div id="bg_black" style="position: relative;">
-  <ion-row>
-    <ion-col col-8>
-        <ion-datetime color="light" displayFormat="YYYY년 MM월" [(ngModel)]="pickDate" item-width="80%"></ion-datetime>
-    </ion-col>
-    <ion-col>
+  <div id="bg_black">
+    <ion-row>
+      <ion-col col-8>
+        <ion-datetime displayFormat="YYYY년 MM월" [(ngModel)]="pickDate"></ion-datetime>
+      </ion-col>
+      <ion-col>
         <button ion-button icon-only clear color="light" (click)="daysConfig()" style="float:right">
           <ion-icon name="calendar"></ion-icon>
         </button> 
-    </ion-col>
-  </ion-row>
-
-  
-  <ion-list>
-    <ion-card>
-      <ion-card-header>
-        <b>질문 내용</b>
-      </ion-card-header>
-      <ion-card-content>
-       <font color="black">yyyy-mm-dd</font>
-      </ion-card-content>
-    </ion-card>
-   <ion-card>
-      <ion-card-header>
-        <b>질문 내용</b>
-      </ion-card-header>
-      <ion-card-content>
-       <font color="black">yyyy-mm-dd</font>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <b>질문 내용</b>
-      </ion-card-header>
-      <ion-card-content>
-       <font color="black">yyyy-mm-dd</font>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <b>질문 내용</b>
-      </ion-card-header>
-      <ion-card-content>
-       <font color="black">yyyy-mm-dd</font>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+      </ion-col>
+    </ion-row>
+ 
+    <ion-list>
+      <ion-card>
+        <ion-item>
+          <p item-left class="date">1</p>
+          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <p item-left class="date">2</p>
+          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <p item-left class="date">3</p>
+          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <p item-left class="date">4</p>
+          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <p item-left class="date">10</p>
+          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <p item-left class="date">17</p>
+          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <p item-left class="date">21</p>
+          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <p item-left class="date">31</p>
+          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+        </ion-item>
+      </ion-card>
+      
+<!--
+      <ion-card>
+        <ion-card-header>
+          <b>질문 내용</b>
+        </ion-card-header>
+        <ion-card-content>
+         <font color="black">yyyy-mm-dd</font>
+        </ion-card-content>
+      </ion-card>
+     <ion-card>
+        <ion-card-header>
+          <b>질문 내용</b>
+        </ion-card-header>
+        <ion-card-content>
+         <font color="black">yyyy-mm-dd</font>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <b>질문 내용</b>
+        </ion-card-header>
+        <ion-card-content>
+         <font color="black">yyyy-mm-dd</font>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <b>질문 내용</b>
+        </ion-card-header>
+        <ion-card-content>
+         <font color="black">yyyy-mm-dd</font>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <b>질문 내용</b>
+        </ion-card-header>
+        <ion-card-content>
+         <font color="black">yyyy-mm-dd</font>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <b>질문 내용</b>
+        </ion-card-header>
+        <ion-card-content>
+         <font color="black">yyyy-mm-dd</font>
+        </ion-card-content>
+      </ion-card>
+-->
+    </ion-list>
   </div>
 </ion-content>

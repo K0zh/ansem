@@ -1,16 +1,34 @@
 page-list {
-  // ion-content {
-  //   // background-image: url('../assets/images/bg_img1.png');
-  //   background: #fff;
-  // }
+  ion-content {
+    //background-image: url('../assets/video/bg_video_2.jpg');
+    //background-size: cover;
+  }
 
-  // ion-item {
-  //   background: transparent !important;
-  // }
+  ion-col {
+    overflow: hidden !important;
+  }
+  
+  ion-card {
+    //background-color: rgba(255, 255, 255, 0.1) !important;
+    p {
+      //color: #fff !important;
+      
+      &.date {
+        //background-color: color($colors, danger);
+        font-size: 24px;
+        width: 28px;
+//        height: 24px;
+//        border-radius: 12px;
+        text-align: center;
+        line-height: 24px;
+        
+      }
+    }
+  }
 
   #bg_black {
-    height: 101%;
-    background: url("../assets/images/bg_black.png") 0 0 repeat;
+    height: 100%;
+    //background: url("../assets/images/bg_black.png") 0 0 repeat;
   }
 }
 
