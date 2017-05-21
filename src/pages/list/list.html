@@ -8,10 +8,10 @@
   <div id="bg_black">
     <ion-row>
       <ion-col col-8>
-        <ion-datetime displayFormat="YYYY년 MM월" [(ngModel)]="pickDate"></ion-datetime>
+        <ion-datetime displayFormat="YYYY년 MM월" [(ngModel)]="pickDate" cancelText="취소" doneText="확인"></ion-datetime>
       </ion-col>
       <ion-col>
-        <button ion-button icon-only clear color="light" (click)="daysConfig()" style="float:right">
+        <button ion-button icon-only clear (click)="daysConfig()" style="float:right">
           <ion-icon name="calendar"></ion-icon>
         </button> 
       </ion-col>
