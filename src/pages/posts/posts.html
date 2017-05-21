@@ -1,27 +1,27 @@
-
 <ion-header>
-
-  <ion-toolbar>
-    <ion-title>Posts</ion-title>
-    <ion-buttons end>
-      <button ion-button clear (click)="dismiss()">
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="md-arrow-back" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>2017년 05월 20일</ion-title>
+    <ion-buttons end right>
+      <button ion-button icon-only>
         <ion-icon name="md-checkmark"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-toolbar>
-
+  </ion-navbar>
 </ion-header> 
 
-
 <ion-content>
-  <div>　yyyy-mm-dd</div>
-  <div style="position: absolute; top: 10%; left: 50%; transform: translate(-50%, -30%); min-width: 90%;">
-    <h3 text-center ion-text>오늘 하루는 어땠어? 가나다라마바사ㅇㅁㅇㅁㄴㅇ</h3>
-    <p ion-text text-right padding>- 안셈님이 질문합니다</p>
+  <div class="post-wrap">
+    <div class="post-question" padding>
+      <h1 ion-text text-center padding no-margin>일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔</h1>
+      <p ion-text text-right padding no-margin>- 감아 / 로꼬</p>
+    </div>
+    <div class="post-textarea" padding>
+      <textarea placeholder="글을 작성해주세요."></textarea>
+    </div>
   </div>
-  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -30%); min-width: 90%;">
-    <ion-textarea rows="15" placeholder="글을 작성해주세요." padding>
-    </ion-textarea>
-  </div>
-
 </ion-content>
