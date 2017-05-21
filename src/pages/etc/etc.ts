@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { QuestionPage } from '../question/question';
 
 
 @Component({
@@ -7,12 +8,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'etc.html',
 })
 export class EtcPage {
+  pickTime: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController
+    ) {
+
+      this.pickTime ="10:00";
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EtcPage');
+  openQuestion() {
+    let modal = this.modalCtrl.create(QuestionPage);
+    modal.present();
   }
 
 }

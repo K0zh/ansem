@@ -21,6 +21,7 @@ import { ListPage } from '../pages/list/list';
 import { EtcPage } from '../pages/etc/etc';
 import { TabsPage } from '../pages/tabs/tabs';
 import { PostsPage } from '../pages/posts/posts';
+import { QuestionPage } from '../pages/question/question';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PostsPage } from '../pages/posts/posts';
     HomePage,
     ListPage,
     EtcPage,
-    PostsPage
+    PostsPage,
+    QuestionPage
   ],
   imports: [
     CalendarModule,
@@ -43,7 +45,8 @@ import { PostsPage } from '../pages/posts/posts';
     HomePage,
     ListPage,
     EtcPage,
-    PostsPage
+    PostsPage,
+    QuestionPage
   ],
   providers: [
     StatusBar,

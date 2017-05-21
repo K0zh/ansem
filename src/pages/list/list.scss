@@ -1,15 +1,16 @@
 page-list {
+  // ion-content {
+  //   // background-image: url('../assets/images/bg_img1.png');
+  //   background: #fff;
+  // }
 
-  ion-content {
-    background:#000 !important;
-  }
-  ion-list {
-    background: #333 
-  }
+  // ion-item {
+  //   background: transparent !important;
+  // }
 
-  Button ion-item {
-    border-left: 2px solid #e02041 !important;
-    padding-left: 10px;
+  #bg_black {
+    height: 101%;
+    background: url("../assets/images/bg_black.png") 0 0 repeat;
   }
 }
 
@@ -19,7 +20,7 @@ calendar-page.my-class{
   ion-header{
     .toolbar-background-md,.toolbar-background-ios{
       background-color: #f53d3d;
-    }
+    } 
     .toolbar-title-md,.toolbar-title-ios{
       color: #fff;
     }

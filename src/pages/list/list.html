@@ -14,43 +14,52 @@
 
 
 <ion-content>
-  <ion-item>
-      <ion-datetime color="light" displayFormat="YYYY년 MM월" [(ngModel)]="pickDate"></ion-datetime>
-  </ion-item>
-   <button ion-button icon-only (click)="daysConfig()">
-      <ion-icon name="calendar"></ion-icon>
-    </button>  
+  <div id="bg_black" style="position: relative;">
+  <ion-row>
+    <ion-col col-8>
+        <ion-datetime color="light" displayFormat="YYYY년 MM월" [(ngModel)]="pickDate" item-width="80%"></ion-datetime>
+    </ion-col>
+    <ion-col>
+        <button ion-button icon-only clear color="light" (click)="daysConfig()" style="float:right">
+          <ion-icon name="calendar"></ion-icon>
+        </button> 
+    </ion-col>
+  </ion-row>
+ 
   
   <ion-list>
-    <ion-item>
-      <button ion-item>
-       <h3>질문</h3>
-        <p>날짜</p>
-      </button>
-    </ion-item>
-    <ion-item>
-      <button ion-item>
-       <h3>질문</h3>
-        <p>날짜</p>
-      </button>
-    </ion-item>
-    <ion-item>
-      <button ion-item>
-       <h3>질문</h3>
-        <p>날짜</p>
-      </button>
-    </ion-item>
-    <ion-item>
-      <button ion-item>
-       <h3>질문</h3>
-        <p>날짜</p>
-      </button>
-    </ion-item>
-    <ion-item>
-      <button ion-item>
-       <h3>질문</h3>
-        <p>날짜</p>
-      </button>
-    </ion-item>
+    <ion-card>
+      <ion-card-header>
+        <b>질문 내용</b>
+      </ion-card-header>
+      <ion-card-content>
+       <font color="black">yyyy-mm-dd</font>
+      </ion-card-content>
+    </ion-card>
+   <ion-card>
+      <ion-card-header>
+        <b>질문 내용</b>
+      </ion-card-header>
+      <ion-card-content>
+       <font color="black">yyyy-mm-dd</font>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <b>질문 내용</b>
+      </ion-card-header>
+      <ion-card-content>
+       <font color="black">yyyy-mm-dd</font>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <b>질문 내용</b>
+      </ion-card-header>
+      <ion-card-content>
+       <font color="black">yyyy-mm-dd</font>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
+  </div>
 </ion-content>
