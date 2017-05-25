@@ -1,5 +1,11 @@
 page-etc {
-    ion-item {
-        //background: #000 !important;
+  ion-list {
+    padding-top: 5%;
+    background-color: transparent !important;
+    
+    button[ion-item] {
+      background-color: transparent !important;
+      color: #fff;
     }
+  }
 }

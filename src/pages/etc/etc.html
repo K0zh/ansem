@@ -6,30 +6,28 @@
 
 <ion-content style="background: url(assets/images/bg_img_3.jpg) 0 0 no-repeat; background-size: cover;">
   <div id="bg_black">
-    <ion-list >
-      <ion-item>
-        <ion-label>질문 시간 설정</ion-label>
-        <ion-datetime displayFormat="HH:mm a" [(ngModel)]="pickTime"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label>배경음악</ion-label>
-        <ion-toggle checked="true"></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <button ion-button full>앱정보</button>
-      </ion-item>
-      <ion-item>
-        <button ion-button full>초기화</button>
-      </ion-item>
-      <ion-item>
-        <button ion-button full>앱 평가하기</button>
-      </ion-item>
-      <ion-item>
-        <button ion-button full>백업/복구</button>
-      </ion-item>
-      <ion-item>
-        <button ion-button full (click)="openQuestion()">질문하기</button>
-      </ion-item>
+    <ion-list>
+      <button ion-item>
+        알림시간 설정
+      </button>
+      <button ion-item>
+        배경음악
+      </button>
+      <button ion-item (click)="openQuestion()">
+        질문신청하기
+      </button>
+      <button ion-item>
+        앱정보
+      </button>
+      <button ion-item>
+        앱 평가하기
+      </button>
+      <button ion-item>
+        백업/복구
+      </button>
+      <button ion-item>
+        초기화
+      </button>
     </ion-list>
   </div>
 
