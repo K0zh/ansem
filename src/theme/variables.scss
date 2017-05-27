@@ -79,6 +79,13 @@ $toolbar-background: rgba(35, 39, 43, 0.7); //헤더
 
 // Fonts
 // --------------------------------------------------
+@font-face {
+  font-family: 'Rainbow Bridge';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Rainbow Bridge Personal Use.ttf") format("truetype");
+}
+
 @import "../assets/fonts/NanumMyeongjo";
 $font-family-ios-base: "Nanum Myeongjo";
 $font-family-md-base: "Nanum Myeongjo";

@@ -4,28 +4,28 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content style="background: url(assets/images/bg_img_3.jpg) 0 0 no-repeat; background-size: cover;">
+<ion-content style="background-image: url(assets/images/bg_img_3.jpg);">
   <div id="bg_black">
     <ion-list>
-      <button ion-item>
+      <button ion-item (click)="openNotification()">
         알림시간 설정
       </button>
-      <button ion-item>
+      <button ion-item (click)="openBgm()">
         배경음악
       </button>
       <button ion-item (click)="openQuestion()">
         질문신청하기
       </button>
-      <button ion-item>
-        앱정보
+      <button ion-item (click)="openAppInfo()">
+        안셈 정보
       </button>
-      <button ion-item>
-        앱 평가하기
+      <button ion-item (click)="openAppRate()">
+        안셈 평가하기
       </button>
-      <button ion-item>
+      <button ion-item (click)="openBackUp()">
         백업/복구
       </button>
-      <button ion-item>
+      <button ion-item (click)="openReset()">
         초기화
       </button>
     </ion-list>

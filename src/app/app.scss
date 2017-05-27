@@ -15,6 +15,24 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+//.toolbar-title {
+//  background: url(../assets/images/ansem_2.png) center 0 no-repeat;
+//  background-size: contain;
+//  text-indent: -9999px;
+//}
+
+//.toolbar-title {
+//  font-family: 'Rainbow Bridge', sans-serif !important;
+//  font-size: 2.5rem;
+//  font-weight: normal;
+//}
+
+ion-content {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
 #bg_black {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);

@@ -16,12 +16,18 @@ import { SQLite } from '@ionic-native/sqlite';
 
 import { CalendarModule } from "ion2-calendar";
 
+import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { EtcPage } from '../pages/etc/etc';
-import { TabsPage } from '../pages/tabs/tabs';
 import { PostsPage } from '../pages/posts/posts';
-import { QuestionPage } from '../pages/question/question';
+import { NotificationPage } from '../pages/etc/notification/notification';
+import { BgmPage } from '../pages/etc/bgm/bgm';
+import { QuestionPage } from '../pages/etc/question/question';
+import { AppInfoPage } from '../pages/etc/appInfo/appInfo';
+import { AppRatePage } from '../pages/etc/appRate/appRate';
+import { BackUpPage } from '../pages/etc/backUp/backUp';
+import { ResetPage } from '../pages/etc/reset/reset';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { QuestionPage } from '../pages/question/question';
     ListPage,
     EtcPage,
     PostsPage,
-    QuestionPage
+    NotificationPage,
+    BgmPage,
+    QuestionPage,
+    AppInfoPage,
+    AppRatePage,
+    BackUpPage,
+    ResetPage
   ],
   imports: [
     CalendarModule,
@@ -46,7 +58,13 @@ import { QuestionPage } from '../pages/question/question';
     ListPage,
     EtcPage,
     PostsPage,
-    QuestionPage
+    NotificationPage,
+    BgmPage,
+    QuestionPage,
+    AppInfoPage,
+    AppRatePage,
+    BackUpPage,
+    ResetPage
   ],
   providers: [
     StatusBar,
