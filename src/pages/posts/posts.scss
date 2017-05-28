@@ -34,6 +34,15 @@ page-posts {
           background-color: transparent;
           resize: none;
         }
+        .post-btn-wrap {
+          text-align: right;
+          span {
+            margin-left: 10px;
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+        }
       }
     }
   }
