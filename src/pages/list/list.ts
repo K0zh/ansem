@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
-import { CalendarController } from "ion2-calendar/dist";
-
-import { PostsPage } from '../posts/posts';
+import {CalendarController} from "ion2-calendar/dist";
 
 
 @Component({
@@ -17,7 +15,6 @@ export class ListPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public modalCtrl: ModalController,
     private calendarCtrl: CalendarController
   ) {
     this.pickDate = "2017-05";
@@ -33,11 +30,6 @@ export class ListPage {
   
   ionViewWillUnload() {
     console.log('ionViewWillUnload ListPage');
-  }
-  
-  openPosts() {
-    let modal = this.modalCtrl.create(PostsPage);
-    modal.present();
   }
 
   
@@ -98,5 +90,5 @@ export class ListPage {
       console.log(res);
     });
   }
-  
+
 }

@@ -17,7 +17,11 @@
   <div id="bg_black">
     <div class="flex-item post-question">
       <div>
-        <h1 ion-text text-center color="light">오늘 하루는 어땠어?</h1>
+        <h1 ion-text text-center color="light">오늘 하루는 어땠어?
+          <li *ngFor="let item of question | async">
+          {{item.$value}}
+          </li>
+        </h1>
         <p ion-text text-right padding color="light">- 감아 / 로꼬</p>
       </div>
     </div>

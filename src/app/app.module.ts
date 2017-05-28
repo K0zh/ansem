@@ -29,6 +29,20 @@ import { AppRatePage } from '../pages/etc/appRate/appRate';
 import { BackUpPage } from '../pages/etc/backUp/backUp';
 import { ResetPage } from '../pages/etc/reset/reset';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+//Firebase
+export const firebaseConfig = {
+  apiKey: "AIzaSyAs2SpcOseb_tWhsGnPATprz9AeCQtFJuw",
+  authDomain: "ansem-63999.firebaseapp.com",
+  databaseURL: "https://ansem-63999.firebaseio.com",
+  projectId: "ansem-63999",
+  storageBucket: "ansem-63999.appspot.com",
+  messagingSenderId: "414194822125"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -48,7 +62,9 @@ import { ResetPage } from '../pages/etc/reset/reset';
   imports: [
     CalendarModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
