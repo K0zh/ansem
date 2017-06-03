@@ -5,6 +5,10 @@ import { CalendarController } from "ion2-calendar/dist";
 
 import { PostsPage } from '../posts/posts';
 
+import { Platform } from 'ionic-angular';
+import { SQLiteProvider } from '../../providers/sqlite';
+import * as moment from 'moment';
+
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html',
@@ -12,14 +16,29 @@ import { PostsPage } from '../posts/posts';
 export class ListPage {
   pickDate: any;
   days: Array<any> = [];
+  postsLists: any;
   
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
+    public platform: Platform,
+    public sqlite: SQLiteProvider,
     private calendarCtrl: CalendarController
   ) {
     this.pickDate = "2017-05";
+    // this.sqlite.create();
+
+    this.sqlite.allSelect()
+    .then(data => {
+      console.log("000000");
+      console.log(data);
+      this.postsLists = data;
+      console.log("1111111111");
+      console.log(this.postsLists);
+      console.log("2222222222222");
+    })
+    
   }
 
   ionViewDidLoad() {
@@ -35,7 +54,8 @@ export class ListPage {
   }
   
   openPosts() {
-    let modal = this.modalCtrl.create(PostsPage);
+    // let modal = this.modalCtrl.create(PostsPage, {"question": this.question, "writer": this.writer, "type": type});
+    let modal = this.modalCtrl.create(PostsPage, {"question": "test1", "writer": "test2", "posts_type": "view"});
     modal.present();
   }
 

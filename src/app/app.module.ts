@@ -31,6 +31,7 @@ import { ResetPage } from '../pages/etc/reset/reset';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { SQLiteProvider } from '../providers/sqlite';
 
 
 //Firebase
@@ -93,7 +94,8 @@ export const firebaseConfig = {
     AdMob,
     EmailComposer,
     File,
-    SQLite
+    SQLite,
+    SQLiteProvider
   ]
 })
 export class AppModule {}
