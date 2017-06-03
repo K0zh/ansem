@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.breadnine.ansem" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>안셈</name>
-    <description>안셈 - 질문일기 / 마음속의 생각 / 다이어리</description>
+    <description>안셈 - 마음속의 생각 / 질문일기 / 다이어리</description>
     <author email="breadnine09@gmail.com" href="mailto:breadnine09@gmail.com">breadnine</author>
     <content src="index.html" />
     <access origin="*" />
