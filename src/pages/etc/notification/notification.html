@@ -1,19 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Notification</ion-title>
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>알림 설정</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="dismiss()">
-        <ion-icon name="md-checkmark"></ion-icon>
+        <ion-icon name="checkmark"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div>
-    <input type="text" placeholder="질문 입력">
-  </div>
-  <div>
-    <input type="text" placeholder="작성자">
-  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label>알림</ion-label>
+      <ion-toggle [(ngModel)]="is_notification"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="is_notification">
+      <ion-label>시간</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="notification_time" cancelText="취소" doneText="확인"></ion-datetime>
+    </ion-item>
+  </ion-list>
 </ion-content>

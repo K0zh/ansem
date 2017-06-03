@@ -25,9 +25,7 @@ import { NotificationPage } from '../pages/etc/notification/notification';
 import { BgmPage } from '../pages/etc/bgm/bgm';
 import { QuestionPage } from '../pages/etc/question/question';
 import { AppInfoPage } from '../pages/etc/appInfo/appInfo';
-import { AppRatePage } from '../pages/etc/appRate/appRate';
 import { BackUpPage } from '../pages/etc/backUp/backUp';
-import { ResetPage } from '../pages/etc/reset/reset';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -55,9 +53,7 @@ export const firebaseConfig = {
     BgmPage,
     QuestionPage,
     AppInfoPage,
-    AppRatePage,
-    BackUpPage,
-    ResetPage
+    BackUpPage
   ],
   imports: [
     CalendarModule,
@@ -78,9 +74,7 @@ export const firebaseConfig = {
     BgmPage,
     QuestionPage,
     AppInfoPage,
-    AppRatePage,
-    BackUpPage,
-    ResetPage
+    BackUpPage
   ],
   providers: [
     StatusBar,

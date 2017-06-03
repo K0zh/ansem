@@ -5,9 +5,7 @@ import { NotificationPage } from './notification/notification';
 import { BgmPage } from './bgm/bgm';
 import { QuestionPage } from './question/question';
 import { AppInfoPage } from './appInfo/appInfo';
-import { AppRatePage } from './appRate/appRate';
 import { BackUpPage } from './backUp/backUp';
-import { ResetPage } from './reset/reset';
 
 
 @Component({
@@ -46,8 +44,7 @@ export class EtcPage {
   }
   
   openAppRate() {
-    const modal = this.modalCtrl.create(AppRatePage);
-    modal.present();
+    
   }
   
   openBackUp() {
@@ -56,8 +53,7 @@ export class EtcPage {
   }
   
   openReset() {
-    const modal = this.modalCtrl.create(ResetPage);
-    modal.present();
+    
   }
 
 }
