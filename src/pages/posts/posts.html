@@ -5,9 +5,9 @@
         <ion-icon name="md-arrow-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>2017년 05월 20일</ion-title>
-    <ion-buttons end right>
-      <button ion-button icon-only>
+    <ion-title>{{postsData.reg_dt | date}}</ion-title>
+    <ion-buttons end right *ngIf="!type_check">
+      <button ion-button icon-only (click)="savePosts()">
         <ion-icon name="md-checkmark"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,13 +17,17 @@
 <ion-content style="background-image: url(assets/images/bg_img_3.jpg);">
   <div class="post-wrap">
     <div class="post-question" padding>
-      <h1 ion-text text-center padding no-margin>일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔</h1>
-      <p ion-text text-right padding no-margin>- 감아 / 로꼬</p>
+      <h1 ion-text text-center padding no-margin>{{postsData.question}}</h1>
+      <p ion-text text-right padding no-margin>- {{postsData.writer}}</p>
     </div>
     <div class="post-textarea" padding>
-      <textarea placeholder="글을 작성해주세요."></textarea>
-      <div class="post-btn-wrap">
+      <textarea placeholder="글을 작성해주세요." [(ngModel)]="postsData.contents" [disabled]="type_check"></textarea>
+      <div class="post-btn-wrap" *ngIf="type_check">
+        {{postsData.date}}
         <span>수정</span><span>삭제</span>
+        <button ion-button icon-only (click)="selectTest()">
+         테스트
+        </button>
       </div>
     </div>
   </div>

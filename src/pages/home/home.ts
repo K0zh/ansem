@@ -36,8 +36,9 @@ export class HomePage {
     
   }
   
-  openPosts() {
-    let modal = this.modalCtrl.create(PostsPage);
+  openPosts(posts_type) {
+    console.log(posts_type);
+    let modal = this.modalCtrl.create(PostsPage, {"question": this.question, "writer": this.writer, "posts_type": "write"});
     modal.present();
   }
 }
