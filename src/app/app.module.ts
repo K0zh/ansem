@@ -31,6 +31,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { SQLiteProvider } from '../providers/sqlite';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 
 //Firebase
 export const firebaseConfig = {
@@ -61,7 +63,11 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    IonicStorageModule.forRoot({
+      name: 'ansemDB',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
