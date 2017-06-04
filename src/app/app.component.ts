@@ -20,12 +20,12 @@ export class MyApp {
   }
   
   initializeApp() {
-    this.platform.ready().then(() => {
-      //this.statusBar.backgroundColorByHexString('#171717');
+    this.platform.ready().then(() => {  //this.statusBar.backgroundColorByHexString('#171717');
       this.statusBar.styleDefault();
       setTimeout(() => {
         this.splashScreen.hide();
       }, 100);
     });
   }
+  
 }

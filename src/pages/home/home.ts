@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, ModalController } from 'ionic-angular';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { LocalStorageProvider } from '../../providers/local-storage';
 
 import { PostsPage } from '../posts/posts';
 
@@ -18,17 +19,14 @@ export class HomePage {
     public navCtrl: NavController,
     private platform: Platform,
     public modalCtrl: ModalController,
-    private firebase_DB: AngularFireDatabase
+    public localStorage: LocalStorageProvider
   ) {
-    const today_question = this.firebase_DB.list('/m_1/d_1/q_1', { preserveSnapshot: true });
-    today_question.subscribe(snapshots => {
-      snapshots.forEach(snapshot => {
-        if(snapshot.key === "name") {
-          this.writer = snapshot.val();
-        } else {
-          this.question = snapshot.val();
-        }
-      });
+    localStorage.selectTodayQuestion().then(data => {
+      this.question = data.question;
+      this.writer = data.writer;
+    }).catch((error) => {
+      console.log("====== (홈) 질문 로드 에러 ======");
+      console.log(error);
     });
   }
 
@@ -36,9 +34,13 @@ export class HomePage {
     
   }
   
-  openPosts(posts_type) {
-    console.log(posts_type);
-    let modal = this.modalCtrl.create(PostsPage, {"question": this.question, "writer": this.writer, "posts_type": "write"});
+  openPosts() {
+    const param = {
+      "question": this.question,
+      "writer": this.writer,
+      "posts_type": "write"
+    }
+    const modal = this.modalCtrl.create(PostsPage, param);
     modal.present();
   }
 }
