@@ -7,6 +7,7 @@ import { QuestionPage } from './question/question';
 import { AppInfoPage } from './appInfo/appInfo';
 import { BackUpPage } from './backUp/backUp';
 
+import { LocalStorageProvider } from '../../providers/local-storage';
 
 @Component({
   selector: 'page-etc',
@@ -14,12 +15,20 @@ import { BackUpPage } from './backUp/backUp';
 })
 export class EtcPage {
   pickTime: any;
+  bg_url: String;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public localStorage: LocalStorageProvider
   ) {
+    localStorage.selectTodayBgImg().then((data) => {
+      this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
+    }).catch((error) => {
+      this.bg_url = "url(assets/images/bg/bg_img_1.jpg)";
+    });
+    
     this.pickTime ="10:00";
   }
 

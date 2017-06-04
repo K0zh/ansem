@@ -4,7 +4,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content style="background-image: url(assets/images/bg_img_3.jpg);">
+<ion-content [ngStyle]="{'background-image': bg_url}">
   <div id="bg_black">
     <ion-list>
       <button ion-item (click)="openNotification()">
