@@ -22,64 +22,10 @@
     </ion-row>
  
     <ion-list>
-      <ion-card>
+      <ion-card *ngFor="let posts of postsList">
         <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
-        </ion-item>
-      </ion-card>
-      <ion-card>
-        <ion-item (click)="openPosts()">
-          <p item-left class="date">27</p>
-          <p>오늘 하루는 어땠어? 느껴져 딱 목소리에서 누가 또 네 심기에 손댔어 맞아 전부 그 사람이 잘못했어</p>
+          <p item-left class="date">{{posts.REG_DT | date:'d'}}</p>
+          <p>{{posts.QUESTION}}</p>
         </ion-item>
       </ion-card>
     </ion-list>
