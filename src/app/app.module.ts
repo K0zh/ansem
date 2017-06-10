@@ -13,6 +13,7 @@ import { AdMob } from '@ionic-native/admob';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { File } from '@ionic-native/file';
 import { SQLite } from '@ionic-native/sqlite';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { CalendarModule } from "ion2-calendar";
 
@@ -30,8 +31,7 @@ import { BackUpPage } from '../pages/etc/backUp/backUp';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { SQLiteProvider } from '../providers/sqlite';
-
-import { IonicStorageModule } from '@ionic/storage';
+import { LocalStorageProvider } from '../providers/local-storage';
 
 
 //Firebase
@@ -95,7 +95,8 @@ export const firebaseConfig = {
     EmailComposer,
     File,
     SQLite,
-    SQLiteProvider
+    SQLiteProvider,
+    LocalStorageProvider
   ]
 })
 export class AppModule {}
