@@ -47,10 +47,29 @@ export class ListPage {
     console.log('ionViewWillUnload ListPage');
   }
   
-  openPosts() {
-    // let modal = this.modalCtrl.create(PostsPage, {"question": this.question, "writer": this.writer, "type": type});
-    let modal = this.modalCtrl.create(PostsPage, {"question": "test1", "writer": "test2", "posts_type": "view"});
-    modal.present();
+  openPosts(reg_dt: String) {
+    let posts_question;
+    let posts_contents;
+    let posts_type;
+    console.log(reg_dt);
+
+    this.sqlite.selectCheckToday(reg_dt).then(data => {
+      posts_question = data[0].QUESTION;
+      posts_contents = data[0].CONTENTS;
+      posts_type = "view"
+
+      const param = {
+        "question": posts_question,
+        "contents": posts_contents,
+        "posts_type": posts_type
+      }
+
+      const modal = this.modalCtrl.create(PostsPage, param);
+      modal.present();
+      
+    }).catch(e => {
+      console.log(e);
+    });
   }
 
   

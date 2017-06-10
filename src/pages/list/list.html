@@ -23,7 +23,7 @@
  
     <ion-list>
       <ion-card *ngFor="let posts of postsList">
-        <ion-item (click)="openPosts()">
+        <ion-item (click)="openPosts(posts.REG_DT)">
           <p item-left class="date">{{posts.REG_DT | date:'d'}}</p>
           <p>{{posts.QUESTION}}</p>
         </ion-item>
