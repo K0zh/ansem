@@ -19,6 +19,7 @@ export class ListPage {
   pickDate: any;
   days: Array<any> = [];
   postsLists: any;
+  postsList: any;
   bg_url: String;
   
   constructor(
@@ -37,17 +38,7 @@ export class ListPage {
     });
       
     this.pickDate = "2017-05";
-    // this.sqlite.create();
-
-    this.sqlite.allSelect()
-    .then(data => {
-      console.log("000000");
-      console.log(data);
-      this.postsLists = data;
-      console.log("1111111111");
-      console.log(this.postsLists);
-      console.log("2222222222222");
-    })
+    
     
   }
 
@@ -56,7 +47,11 @@ export class ListPage {
   }
   
   ionViewWillEnter() {
-    console.log('ionViewWillEnter ListPage');
+    this.sqlite.selectAll().then(data => {
+      this.postsList = data;
+    }).catch(e => {
+      console.log(e);
+    })
   }
   
   ionViewWillUnload() {
