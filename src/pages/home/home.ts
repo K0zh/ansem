@@ -17,6 +17,7 @@ export class HomePage {
   question: FirebaseListObservable<any[]>;
   writer: String;
   today: String;
+  bg_url: String;
   
   constructor(
     public navCtrl: NavController,
@@ -34,6 +35,13 @@ export class HomePage {
       console.log("====== (홈) 질문 로드 에러 ======");
       console.log(error);
     });
+      
+    localStorage.selectTodayBgImg().then((data) => {
+      this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
+    }).catch((error) => {
+      this.bg_url = "url(assets/images/bg/bg_img_1.jpg)";
+    });
+    
   }
 
   ionViewDidLoad() {

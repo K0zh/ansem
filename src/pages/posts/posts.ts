@@ -2,6 +2,7 @@ import { Component, Directive, OnInit, ElementRef } from '@angular/core';
 import { NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { SQLiteProvider } from '../../providers/sqlite';
+import { LocalStorageProvider } from '../../providers/local-storage';
 import * as moment from 'moment';
 
 @Directive({
@@ -27,8 +28,11 @@ export class AutofocusDirective implements OnInit {
 export class PostsPage {
 
   postsData: any;
+  type_check: boolean;
   postsType: String;
   typeCheck: boolean;
+  
+  bg_url: String;
   
   constructor(
     public navCtrl: NavController, 
@@ -36,8 +40,15 @@ export class PostsPage {
     public viewCtrl: ViewController,
     public platform: Platform,
     public sqlite: SQLiteProvider,
+    public localStorage: LocalStorageProvider,
     private toastCtrl: ToastController
   ) {
+    localStorage.selectTodayBgImg().then((data) => {
+      this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
+    }).catch((error) => {
+      this.bg_url = "url(assets/images/bg/bg_img_1.jpg)";
+    });
+    
     //DB 생성 및 연결
     // this.sqlite.create();
     // this.sqlite.allSelect();

@@ -9,6 +9,8 @@ import { Platform } from 'ionic-angular';
 import { SQLiteProvider } from '../../providers/sqlite';
 import * as moment from 'moment';
 
+import { LocalStorageProvider } from '../../providers/local-storage';
+
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html',
@@ -16,7 +18,9 @@ import * as moment from 'moment';
 export class ListPage {
   pickDate: any;
   days: Array<any> = [];
+  postsLists: any;
   postsList: any;
+  bg_url: String;
   
   constructor(
     public navCtrl: NavController,
@@ -24,8 +28,15 @@ export class ListPage {
     public modalCtrl: ModalController,
     public platform: Platform,
     public sqlite: SQLiteProvider,
-    private calendarCtrl: CalendarController
+    private calendarCtrl: CalendarController,
+    public localStorage: LocalStorageProvider
   ) {
+    localStorage.selectTodayBgImg().then((data) => {
+      this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
+    }).catch((error) => {
+      this.bg_url = "url(assets/images/bg/bg_img_1.jpg)";
+    });
+      
     this.pickDate = "2017-05";
     
     
