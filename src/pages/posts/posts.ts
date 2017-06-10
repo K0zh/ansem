@@ -27,7 +27,7 @@ export class AutofocusDirective implements OnInit {
 })
 export class PostsPage {
 
-  postsData: any;\
+  postsData: any;
   type_check: boolean;
   postsType: String;
   typeCheck: boolean;
