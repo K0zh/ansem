@@ -36,26 +36,29 @@ export class ListPage {
     }).catch((error) => {
       this.bg_url = "url(assets/images/bg/bg_img_1.jpg)";
     });
-      
-    this.pickDate = "2017-05";
     
-    
+    this.pickDate = moment().format("YYYY-MM");
   }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListPage');
   }
   
   ionViewWillEnter() {
-    this.sqlite.selectAll().then(data => {
-      this.postsList = data;
-    }).catch(e => {
-      console.log(e);
-    })
+    this.selectMonthPosts();
   }
   
   ionViewWillUnload() {
     console.log('ionViewWillUnload ListPage');
+  }
+  
+  selectMonthPosts() {
+    this.sqlite.selectMonth(this.pickDate).then(data => {
+      this.postsList = data;
+    }).catch(e => {
+      console.log(e);
+    })
   }
   
   openPosts(reg_dt: String) {

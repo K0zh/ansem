@@ -9,8 +9,8 @@
     <ion-row>
       <ion-col>
       </ion-col>
-      <ion-col col-8 class="pick-date">
-        <ion-datetime displayFormat="YYYY년 MM월" [(ngModel)]="pickDate" cancelText="취소" doneText="확인" min="2017-01-01"></ion-datetime>
+      <ion-col col-4 class="pick-date">
+        <ion-datetime displayFormat="YYYY년 MM월" [(ngModel)]="pickDate" cancelText="취소" doneText="확인" min="2017-01-01" (ngModelChange)="selectMonthPosts($event)"></ion-datetime>
       </ion-col>
       <ion-col>
 <!--
