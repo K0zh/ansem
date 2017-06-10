@@ -1,8 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, Directive, OnInit, ElementRef } from '@angular/core';
 import { NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { SQLiteProvider } from '../../providers/sqlite';
 import * as moment from 'moment';
+
+@Directive({
+  selector: '[autofocus]'
+})
+export class AutofocusDirective implements OnInit {
+  constructor(public elementRef: ElementRef) { this.focus(); };
+
+    ngOnInit() {
+        this.focus();
+    }
+ 
+    private focus() {
+        this.elementRef.nativeElement.focus();
+    }
+}
 
 
 @Component({
@@ -12,8 +27,9 @@ import * as moment from 'moment';
 export class PostsPage {
 
   postsData: any;
+  postsType: String;
   typeCheck: boolean;
-
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -25,18 +41,19 @@ export class PostsPage {
     //DB 생성 및 연결
     // this.sqlite.create();
     // this.sqlite.allSelect();
+    this.postsType = this.navParams.get("posts_type");
 
     //Posts 타입 체크 _ write(글작성),view(글 보기만 가능)
-    if(this.navParams.get("posts_type") == "write") {
-      this.typeCheck = false;
-    } else {
+    if(this.postsType == "view") {
       this.typeCheck = true;
+    } else {
+      this.typeCheck = false;
     }
 
     //SQLite DB에 저장할 값
     this.postsData = {
       question: this.navParams.get("question"), //질문
-      contents: "", //글 내용
+      contents: this.navParams.get("contents"), //글 내용
       reg_dt: moment().format('YYYY-MM-DD') //날짜
     }
   }
@@ -60,10 +77,31 @@ export class PostsPage {
     this.dismiss();
   }
 
-  selectTest() {
-    this.sqlite.select("1");
+  update() {
+    this.postsType = "update";
+    this.typeCheck = false;
+  }
 
-    this.sqlite.deleteDB();
-    console.log(this.postsData);
+  updatePosts() {
+    this.sqlite.update(this.postsData.contents, this.postsData.reg_dt);
+    let toast = this.toastCtrl.create({
+      message: '수정 완료',
+      duration: 2000,
+      position: 'bottom'
+    });
+    toast.present();
+    this.postsType = "view";
+    this.typeCheck = true;
+  }
+
+  deletePosts() {
+    this.sqlite.delete(this.postsData.reg_dt);
+    let toast = this.toastCtrl.create({
+      message: '삭제 완료',
+      duration: 2000,
+      position: 'bottom'
+    });
+    toast.present();
+    this.dismiss();
   }
 }

@@ -6,8 +6,13 @@
       </button>
     </ion-buttons>
     <ion-title>{{postsData.reg_dt | date}}</ion-title>
-    <ion-buttons end right *ngIf="!typeCheck">
+    <ion-buttons end right *ngIf="postsType == 'write'">
       <button ion-button icon-only (click)="savePosts()">
+        <ion-icon name="md-checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end right *ngIf="postsType == 'update'">
+      <button ion-button icon-only (click)="updatePosts()">
         <ion-icon name="md-checkmark"></ion-icon>
       </button>
     </ion-buttons>
@@ -20,13 +25,9 @@
       <h1 ion-text text-center padding no-margin>{{postsData.question}}</h1>
     </div>
     <div class="post-textarea" padding>
-      <textarea placeholder="글을 작성해주세요." [(ngModel)]="postsData.contents" [disabled]="typeCheck"></textarea>
+      <textarea id="contents" placeholder="글을 작성해주세요." [(ngModel)]="postsData.contents" [disabled]="typeCheck" autofocus></textarea>
       <div class="post-btn-wrap" *ngIf="typeCheck">
-        {{postsData.date}}
-        <span>수정</span><span>삭제</span>
-        <button ion-button icon-only (click)="selectTest()">
-         테스트
-        </button>
+        <span (click)="update()">수정</span><span (click)="deletePosts()">삭제</span>
       </div>
     </div>
   </div>

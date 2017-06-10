@@ -51,8 +51,18 @@ export class SQLiteProvider {
   }
 
   insert(question: String, contents: String, reg_dt: String) {
-    console.log("inster DB")
+    console.log("insert DB");
     this.query("insert into POSTS_TB(QUESTION, CONTENTS, REG_DT) values (?, ?, ?);", [question, contents, reg_dt]);
+  }
+
+  update(contents: String, reg_dt: String) {
+    console.log("update DB");
+    this.query("update POSTS_TB set CONTENTS = ? WHERE REG_DT = ?;",[contents, reg_dt]);
+  }
+
+  delete(reg_dt: String) {
+    console.log("delete DB");
+    this.query("delete from POSTS_TB WHERE REG_DT = ?;",[reg_dt]);
   }
 
   select(id: String) {
@@ -60,12 +70,16 @@ export class SQLiteProvider {
   }
 
   selectCheckToday(today: String): Promise<any> {
-    console.log(today);
-    return this.query("select count(*) from POSTS_TB where REG_DT = ?;",[today]).then((data) => {
-      console.log(data);
-      console.log(data.length);
-      console.log(data.item(0));
-      return data;
+    return this.query("select * from POSTS_TB where REG_DT = ?;",[today]).then((data) => {
+      if(data.length > 0) {
+        let result = [];
+        for(let i = 0; i < data.length; i++) {
+          result.push(data.item(i));
+        }
+        return result;
+      } else {
+        return data.length;
+      }
     }).catch(e => {
       console.log(e);
     });
@@ -73,7 +87,6 @@ export class SQLiteProvider {
 
   selectAll(): Promise<any> {
     return this.query("select * from POSTS_TB;",[]).then((data) => {
-      console.log(data.item(0));
       if(data.length > 0) {
         if (this.platform.is('cordova')) {
           let result = [];
