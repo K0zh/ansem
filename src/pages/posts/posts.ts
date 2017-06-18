@@ -1,25 +1,9 @@
-import { Component, Directive, OnInit, ElementRef } from '@angular/core';
-import { NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
+import { Component, Directive, OnInit, ElementRef, ViewChild, Renderer, Input } from '@angular/core';
+import { NavController, NavParams, ViewController, ToastController, AlertController  } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { SQLiteProvider } from '../../providers/sqlite';
 import { LocalStorageProvider } from '../../providers/local-storage';
 import * as moment from 'moment';
-
-@Directive({
-  selector: '[autofocus]'
-})
-export class AutofocusDirective implements OnInit {
-  constructor(public elementRef: ElementRef) { this.focus(); };
-
-    ngOnInit() {
-        this.focus();
-    }
- 
-    private focus() {
-        this.elementRef.nativeElement.focus();
-    }
-}
-
 
 @Component({
   selector: 'page-posts',
@@ -27,34 +11,36 @@ export class AutofocusDirective implements OnInit {
 })
 export class PostsPage {
 
+  @ViewChild('contents') contents:ElementRef;
+
   postsData: any;
-  type_check: boolean;
   postsType: String;
   typeCheck: boolean;
+  refresh: boolean;
   
   bg_url: String;
   
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController,
-    public platform: Platform,
+    public elementRef: ElementRef,
+    public renderer : Renderer,
     public sqlite: SQLiteProvider,
     public localStorage: LocalStorageProvider,
-    private toastCtrl: ToastController
+    private platform: Platform,
+    private toastCtrl: ToastController,
+    private alertCtrl: AlertController
   ) {
     localStorage.selectTodayBgImg().then((data) => {
       this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
     }).catch((error) => {
       this.bg_url = "url(assets/images/bg/bg_img_1.jpg)";
     });
-    
-    //DB 생성 및 연결
-    // this.sqlite.create();
-    // this.sqlite.allSelect();
-    this.postsType = this.navParams.get("posts_type");
 
     //Posts 타입 체크 _ write(글작성),view(글 보기만 가능)
+    this.postsType = this.navParams.get("posts_type");
+
     if(this.postsType == "view") {
       this.typeCheck = true;
     } else {
@@ -65,7 +51,7 @@ export class PostsPage {
     this.postsData = {
       question: this.navParams.get("question"), //질문
       contents: this.navParams.get("contents"), //글 내용
-      reg_dt: moment().format('YYYY-MM-DD') //날짜
+      reg_dt: this.navParams.get("reg_dt") //날짜
     }
   }
 
@@ -82,13 +68,14 @@ export class PostsPage {
     let toast = this.toastCtrl.create({
       message: '저장 완료',
       duration: 2000,
-      position: 'bottom'
+      position: 'top'
     });
     toast.present();
     this.dismiss();
   }
 
   update() {
+    console.log("update")
     this.postsType = "update";
     this.typeCheck = false;
   }
@@ -98,7 +85,7 @@ export class PostsPage {
     let toast = this.toastCtrl.create({
       message: '수정 완료',
       duration: 2000,
-      position: 'bottom'
+      position: 'top'
     });
     toast.present();
     this.postsType = "view";
@@ -106,13 +93,35 @@ export class PostsPage {
   }
 
   deletePosts() {
-    this.sqlite.delete(this.postsData.reg_dt);
-    let toast = this.toastCtrl.create({
-      message: '삭제 완료',
-      duration: 2000,
-      position: 'bottom'
-    });
-    toast.present();
-    this.dismiss();
+    let alert = this.alertCtrl.create({
+    title: '정말 삭제하시겠습니까?',
+    message: '삭제시 복구 할 수 없습니다.',
+    buttons: [
+      {
+        text: '취소',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: '확인',
+        handler: () => {
+
+          this.sqlite.delete(this.postsData.reg_dt);
+          let toast = this.toastCtrl.create({
+            message: '삭제 완료',
+            duration: 2000,
+            position: 'top'
+          });
+          toast.present();
+
+          const data = { 'deleteCheck' : 'true' };
+          this.viewCtrl.dismiss(data);
+        }
+      }
+    ]
+  });
+  alert.present();
   }
 }

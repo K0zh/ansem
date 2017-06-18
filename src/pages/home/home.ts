@@ -69,7 +69,8 @@ export class HomePage {
       const param = {
         "question": posts_question,
         "contents": posts_contents,
-        "posts_type": posts_type
+        "posts_type": posts_type,
+        "reg_dt" : this.today
       }
 
       const modal = this.modalCtrl.create(PostsPage, param);

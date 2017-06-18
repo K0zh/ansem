@@ -11,6 +11,11 @@
         <ion-icon name="md-checkmark"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-buttons end right *ngIf="postsType == 'view'">
+      <button ion-button icon-only (click)="deletePosts()">
+        <ion-icon name="md-trash"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-buttons end right *ngIf="postsType == 'update'">
       <button ion-button icon-only (click)="updatePosts()">
         <ion-icon name="md-checkmark"></ion-icon>
@@ -25,10 +30,8 @@
       <h1 ion-text text-center padding no-margin>{{postsData.question}}</h1>
     </div>
     <div class="post-textarea" padding>
-      <textarea id="contents" placeholder="글을 작성해주세요." [(ngModel)]="postsData.contents" [disabled]="typeCheck" autofocus></textarea>
-      <div class="post-btn-wrap" *ngIf="typeCheck">
-        <span (click)="update()">수정</span><span (click)="deletePosts()">삭제</span>
-      </div>
+        <textarea placeholder="글을 작성해주세요." [(ngModel)]="postsData.contents" *ngIf="postsType == 'write'" [readonly]="typeCheck" autofocus></textarea>
+        <textarea (click)="update()" [(ngModel)]="postsData.contents" *ngIf="postsType != 'write'" [readonly]="typeCheck" autofocus></textarea>
     </div>
   </div>
 </ion-content>

@@ -16,6 +16,7 @@ import { LocalStorageProvider } from '../../providers/local-storage';
   templateUrl: 'list.html',
 })
 export class ListPage {
+  
   pickDate: any;
   days: Array<any> = [];
   postsLists: any;
@@ -72,11 +73,23 @@ export class ListPage {
       const param = {
         "question": posts_question,
         "contents": posts_contents,
-        "posts_type": posts_type
+        "posts_type": posts_type,
+        "reg_dt" : reg_dt
       }
 
       const modal = this.modalCtrl.create(PostsPage, param);
+      modal.onDidDismiss(data => {
+
+        if(data.deleteCheck) {
+          this.sqlite.selectAll().then(data => {
+            this.postsList = data;
+          }).catch(e => {
+            console.log(e);
+          })
+        }
+      });
       modal.present();
+      
       
     }).catch(e => {
       console.log(e);
