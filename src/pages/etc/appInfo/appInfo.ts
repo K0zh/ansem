@@ -20,7 +20,7 @@ export class AppInfoPage {
     private appVersion: AppVersion,
     private platform: Platform
   ) {
-    if (this.platform.is('cordova')) {
+    if(this.platform.is('cordova')) {
       this.appVersion.getAppName().then((value) => {
         this.appInformation["name"] = value;
       }).catch(() => {

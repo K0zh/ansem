@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "414194822125",
+    "firebase_url": "https://ansem-63999.firebaseio.com",
+    "project_id": "ansem-63999",
+    "storage_bucket": "ansem-63999.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414194822125:android:39f7f7e2666d751b",
+        "android_client_info": {
+          "package_name": "com.breadnine.ansem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414194822125-krhu99kb3u2g5t58emuvlfobahpfdcpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxzfOa4ANP2g-R0k5tXhi50zv-Y5nldXI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
