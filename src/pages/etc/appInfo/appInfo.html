@@ -6,19 +6,24 @@
       </button>
     </ion-buttons>
     <ion-title>안셈 정보</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="dismiss()">
-        <ion-icon name="checkmark"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div>
-    <input type="text" placeholder="질문 입력">
-  </div>
-  <div>
-    <input type="text" placeholder="작성자">
-  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>App Name</ion-label>
+      <ion-input type="text" readonly [(ngModel)]="appInformation.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>App Version</ion-label>
+      <ion-input type="text" readonly [(ngModel)]="appInformation.version"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input type="email" readonly value="breadnine09@gmail.com"></ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>
