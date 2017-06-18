@@ -113,4 +113,8 @@ export class LocalStorageProvider {
       console.log("Error : error notification delete");
     });
   }
+
+  clearStorage() {
+    this.storage.clear();
+  }
 }

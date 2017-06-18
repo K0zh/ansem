@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, AlertController, Platform } from 'ionic-angular';
 
 import { NotificationPage } from './notification/notification';
 import { BgmPage } from './bgm/bgm';
@@ -8,6 +8,7 @@ import { AppInfoPage } from './appInfo/appInfo';
 import { BackUpPage } from './backUp/backUp';
 
 import { LocalStorageProvider } from '../../providers/local-storage';
+import { SQLiteProvider } from '../../providers/sqlite';
 
 @Component({
   selector: 'page-etc',
@@ -21,7 +22,10 @@ export class EtcPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    public localStorage: LocalStorageProvider
+    public localStorage: LocalStorageProvider,
+    public sqlite: SQLiteProvider,
+    private alertCtrl: AlertController,
+    private platform: Platform
   ) {
     localStorage.selectTodayBgImg().then((data) => {
       this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
@@ -62,7 +66,27 @@ export class EtcPage {
   }
   
   openReset() {
-    
+
+    let confirm = this.alertCtrl.create({
+          title: "초기화 하시겠습니까?",
+          message: "중요한 데이터는 미리 백업하세요.",
+          buttons: [
+            {
+              text: "취소",
+              handler: () => {
+              }
+            },
+            {
+              text: "확인",
+              handler: () => {
+                this.sqlite.deleteDB();
+                this.localStorage.clearStorage();
+                this.platform.exitApp();
+              }
+            }
+          ]
+        });
+        confirm.present();
   }
 
 }

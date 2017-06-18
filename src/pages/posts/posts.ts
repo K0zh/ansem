@@ -1,5 +1,5 @@
 import { Component, Directive, OnInit, ElementRef, ViewChild, Renderer, Input } from '@angular/core';
-import { NavController, NavParams, ViewController, ToastController, AlertController  } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ToastController, AlertController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { SQLiteProvider } from '../../providers/sqlite';
 import { LocalStorageProvider } from '../../providers/local-storage';
