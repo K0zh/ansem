@@ -1,11 +1,18 @@
 page-question {
-    .question-wrap {
-        padding: 15px;
+    .qs_desc {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 10px 10px 10px 0 !important;
+        h4 {
+            padding-top: 5px;
+            text-align: center;
+        }
+        ol {
+            width: 95%;
+            margin: 0 auto;
+            li {
+                line-height: 1.5;
+            }
+        }
     }
-
-    ion-item {
-        background: rgba(255, 255, 255, 0.8) !important;
-    }
-
-    $text-input-md-background-color: #fff;
 }

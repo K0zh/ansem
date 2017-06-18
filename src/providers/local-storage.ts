@@ -34,7 +34,7 @@ export class LocalStorageProvider {
           //const date: String = "d_" + today_date; // 일
           const random: Number = Math.floor(Math.random() * 1) + 1; // 랜덤난수
           const question: String = "q_" + random; // 질문
-          const query: any = '/' + month + '/' + date + '/' + question;
+          const query: any = '/questions/' + month + '/' + date + '/' + question;
           const selectQuestion = this.firebase_DB.list(query, { preserveSnapshot: true });
           selectQuestion.subscribe(snapshots => {
             snapshots.forEach(snapshot => {
