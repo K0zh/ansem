@@ -102,6 +102,24 @@ export class SQLiteProvider {
       console.log(e);
     });
   }
+  
+  selectMonth(month): Promise<any> {
+    return this.query("select * from POSTS_TB where substr(REG_DT, 1, 7) = ?;", [month]).then((data) => {
+      if(data.length > 0) {
+        if (this.platform.is('cordova')) {
+          let result = [];
+          for(let i = 0; i < data.length; i++) {
+            result.push(data.item(i));
+          }
+          return result;
+        } else {
+          return data.res.rows;
+        }
+      }
+    }).catch(e => {
+      console.log(e);
+    });
+  }
 
   deleteDB() {
     this.sqlite.deleteDatabase({

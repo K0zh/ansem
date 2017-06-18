@@ -5,6 +5,21 @@ import { SQLiteProvider } from '../../providers/sqlite';
 import { LocalStorageProvider } from '../../providers/local-storage';
 import * as moment from 'moment';
 
+// @Directive({
+//   selector: '[autofocus]'
+// })
+// export class AutofocusDirective implements OnInit {
+//   constructor(public elementRef: ElementRef) { this.focus(); };
+
+//     ngOnInit() {
+//         this.focus();
+//     }
+ 
+//     private focus() {
+//         this.elementRef.nativeElement.focus();
+//     }
+// }
+
 @Component({
   selector: 'page-posts',
   templateUrl: 'posts.html',

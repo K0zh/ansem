@@ -12,11 +12,16 @@ page-list {
   .pick-date {
     text-align: center;
     color: #fff;
+    ion-datetime {
+      padding-left: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #fff;
+    }
   }
   
-  ion-col {
-    overflow: hidden !important;
-  }
+//  ion-col {
+//    overflow: hidden !important;
+//  }
   
   ion-list {
     overflow-y: auto;

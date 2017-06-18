@@ -17,7 +17,7 @@ export class LocalStorageProvider {
     
   }
 
-  // 오늘 질문 구하기
+  // 오늘 질문 조회
   selectTodayQuestion(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.storage.get('today_question').then((val) => {
@@ -58,7 +58,7 @@ export class LocalStorageProvider {
     });
   }
   
-  // 오늘 배경 구하기
+  // 오늘 배경 조회
   selectTodayBgImg(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.storage.get('today_bg_img').then((val) => {
@@ -78,6 +78,39 @@ export class LocalStorageProvider {
         console.log("===== 배경 구하기 Error =====");
         reject(error);
       });
+    });
+  }
+  
+  // 알림 정보 조회
+  selectNotification(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.storage.get('notification').then((data) => {
+        if(data) {
+          resolve(data);
+        } else {
+          resolve(null);
+        }
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+  }
+  
+  // 알림 정보 등록
+  saveNotification(notification) {
+    this.storage.set('notification', notification).then((val) => {
+      
+    }).catch((error) => {
+      console.log("Error : error notification save");
+    });
+  }
+  
+  // 알림 정보 삭제
+  deleteNotification() {
+    this.storage.set('notification', null).then((val) => {
+      
+    }).catch((error) => {
+      console.log("Error : error notification delete");
     });
   }
 }
