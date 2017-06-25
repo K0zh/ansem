@@ -9,11 +9,10 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Firebase } from '@ionic-native/firebase';
 import { AppVersion } from '@ionic-native/app-version';
 import { AppRate } from '@ionic-native/app-rate';
-import { AdMob } from '@ionic-native/admob';
-import { EmailComposer } from '@ionic-native/email-composer';
 import { File } from '@ionic-native/file';
 import { SQLite } from '@ionic-native/sqlite';
 import { IonicStorageModule } from '@ionic/storage';
+import { AdMobFree } from '@ionic-native/admob-free';
 
 import { CalendarModule } from "ion2-calendar";
 
@@ -92,8 +91,7 @@ export const firebaseConfig = {
     Firebase,
     AppVersion,
     AppRate,
-    AdMob,
-    EmailComposer,
+    AdMobFree,
     File,
     SQLite,
     SQLiteProvider,
