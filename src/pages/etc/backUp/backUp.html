@@ -6,19 +6,12 @@
       </button>
     </ion-buttons>
     <ion-title>백업/복구</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="dismiss()">
-        <ion-icon name="checkmark"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div>
-    <input type="text" placeholder="질문 입력">
-  </div>
-  <div>
-    <input type="text" placeholder="작성자">
-  </div>
+  <ion-list>
+      <button ion-button full (click)="backUp()">백업</button>
+      <button ion-button full (click)="restore()">복구</button>
+  </ion-list>
 </ion-content>

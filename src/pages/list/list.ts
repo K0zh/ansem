@@ -83,7 +83,7 @@ export class ListPage {
       const modal = this.modalCtrl.create(PostsPage, param);
       modal.onDidDismiss(data => {
 
-        if(data.deleteCheck) {
+        if(data && data.deleteCheck) {
           this.sqlite.selectAll().then(data => {
             this.postsList = data;
           }).catch(e => {

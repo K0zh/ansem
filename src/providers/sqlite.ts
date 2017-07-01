@@ -52,7 +52,7 @@ export class SQLiteProvider {
 
   insert(question: String, contents: String, reg_dt: String) {
     console.log("insert DB");
-    this.query("insert into POSTS_TB(QUESTION, CONTENTS, REG_DT) values (?, ?, ?);", [question, contents, reg_dt]);
+    this.query("insert or replace into POSTS_TB(ID, QUESTION, CONTENTS, REG_DT) values ((select ID from POSTS_TB where REG_DT = ?),?, ?, ?);", [reg_dt, question, contents, reg_dt]);
   }
 
   update(contents: String, reg_dt: String) {
