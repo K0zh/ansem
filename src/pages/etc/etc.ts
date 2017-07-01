@@ -15,7 +15,6 @@ import { SQLiteProvider } from '../../providers/sqlite';
   templateUrl: 'etc.html',
 })
 export class EtcPage {
-  pickTime: any;
   bg_url: String;
 
   constructor(
@@ -32,8 +31,6 @@ export class EtcPage {
     }).catch((error) => {
       this.bg_url = "url(assets/images/bg/bg_img_1.jpg)";
     });
-    
-    this.pickTime ="10:00";
   }
 
   openNotification() {
@@ -66,27 +63,26 @@ export class EtcPage {
   }
   
   openReset() {
-
     let confirm = this.alertCtrl.create({
-          title: "초기화 하시겠습니까?",
-          message: "중요한 데이터는 미리 백업하세요.",
-          buttons: [
-            {
-              text: "취소",
-              handler: () => {
-              }
-            },
-            {
-              text: "확인",
-              handler: () => {
-                this.sqlite.deleteDB();
-                this.localStorage.clearStorage();
-                this.platform.exitApp();
-              }
-            }
-          ]
-        });
-        confirm.present();
+      title: "초기화 하시겠습니까?",
+      message: "중요한 데이터는 미리 백업하세요.",
+      buttons: [
+        {
+          text: "취소",
+          handler: () => {
+          }
+        },
+        {
+          text: "확인",
+          handler: () => {
+            this.sqlite.deleteDB();
+            this.localStorage.clearStorage();
+            this.platform.exitApp();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }

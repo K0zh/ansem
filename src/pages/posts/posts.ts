@@ -1,24 +1,10 @@
-import { Component, Directive, OnInit, ElementRef, ViewChild, Renderer, Input } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer } from '@angular/core';
 import { NavController, NavParams, ViewController, ToastController, AlertController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { SQLiteProvider } from '../../providers/sqlite';
 import { LocalStorageProvider } from '../../providers/local-storage';
-import * as moment from 'moment';
+import { AdMobFree, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free';
 
-// @Directive({
-//   selector: '[autofocus]'
-// })
-// export class AutofocusDirective implements OnInit {
-//   constructor(public elementRef: ElementRef) { this.focus(); };
-
-//     ngOnInit() {
-//         this.focus();
-//     }
- 
-//     private focus() {
-//         this.elementRef.nativeElement.focus();
-//     }
-// }
 
 @Component({
   selector: 'page-posts',
@@ -45,7 +31,8 @@ export class PostsPage {
     public localStorage: LocalStorageProvider,
     private platform: Platform,
     private toastCtrl: ToastController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private admobFree: AdMobFree
   ) {
     localStorage.selectTodayBgImg().then((data) => {
       this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
@@ -68,10 +55,26 @@ export class PostsPage {
       contents: this.navParams.get("contents"), //글 내용
       reg_dt: this.navParams.get("reg_dt") //날짜
     }
+
+    this.setAdConfig();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PostsPage');
+  ionViewWillLeave() {
+    this.admobFree.interstitial.show().then((s) => {
+      console.log("AdMob show : ", s);
+    }).catch(e => console.log(e));
+  }
+
+  setAdConfig() {
+    const interstitailConfig: AdMobFreeInterstitialConfig = {
+      id: 'ca-app-pub-4139703854678189/7440101759',
+      isTesting: true,
+      autoShow: false
+    };
+    this.admobFree.interstitial.config(interstitailConfig);
+    this.admobFree.interstitial.prepare().then((s) => {
+      console.log("AdMob prepare : ", s);
+    }).catch(e => console.log(e));
   }
 
   dismiss() {
