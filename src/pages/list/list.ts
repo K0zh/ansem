@@ -71,7 +71,7 @@ export class ListPage {
     this.sqlite.selectCheckToday(reg_dt).then(data => {
       posts_question = data[0].QUESTION;
       posts_contents = data[0].CONTENTS;
-      posts_type = "view"
+      posts_type = "view";
 
       const param = {
         "question": posts_question,
@@ -84,11 +84,7 @@ export class ListPage {
       modal.onDidDismiss(data => {
 
         if(data && data.deleteCheck) {
-          this.sqlite.selectAll().then(data => {
-            this.postsList = data;
-          }).catch(e => {
-            console.log(e);
-          })
+          this.selectMonthPosts();
         }
       });
       modal.present();
