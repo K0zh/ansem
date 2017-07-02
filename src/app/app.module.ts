@@ -13,6 +13,7 @@ import { File } from '@ionic-native/file';
 import { SQLite } from '@ionic-native/sqlite';
 import { IonicStorageModule } from '@ionic/storage';
 import { AdMobFree } from '@ionic-native/admob-free';
+import { Network } from '@ionic-native/network';
 
 import { CalendarModule } from "ion2-calendar";
 
@@ -94,6 +95,7 @@ export const firebaseConfig = {
     AdMobFree,
     File,
     SQLite,
+    Network,
     SQLiteProvider,
     LocalStorageProvider
   ]

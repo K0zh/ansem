@@ -66,7 +66,8 @@ export class LocalStorageProvider {
         if(!val || today_date !== val.date) {
           const random: Number = Math.floor(Math.random() * 16) + 1; // 랜덤난수
           let param = {
-            bg_num: random,
+            //bg_num: random,
+            bg_num: 1,
             date: today_date
           }
           this.storage.set('today_bg_img', param);
