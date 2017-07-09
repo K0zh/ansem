@@ -64,10 +64,9 @@ export class LocalStorageProvider {
       this.storage.get('today_bg_img').then((val) => {
         const today_date = moment().format("D"); // 오늘 date
         if(!val || today_date !== val.date) {
-          const random: Number = Math.floor(Math.random() * 16) + 1; // 랜덤난수
+          const random: Number = Math.floor(Math.random() * 18) + 1; // 랜덤난수
           let param = {
-            //bg_num: random,
-            bg_num: 1,
+            bg_num: random,
             date: today_date
           }
           this.storage.set('today_bg_img', param);

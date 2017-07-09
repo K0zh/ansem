@@ -25,13 +25,15 @@
 </ion-header> 
 
 <ion-content [ngStyle]="{'background-image': bg_url}">
-  <div class="post-wrap">
-    <div class="post-question" padding>
-      <h1 ion-text text-center padding no-margin>{{postsData.question}}</h1>
-    </div>
-    <div class="post-textarea" padding>
-        <textarea placeholder="글을 작성해주세요." [(ngModel)]="postsData.contents" *ngIf="postsType == 'write'" [readonly]="typeCheck" autofocus></textarea>
-        <textarea (click)="update()" [(ngModel)]="postsData.contents" *ngIf="postsType != 'write'" [readonly]="typeCheck" autofocus></textarea>
+  <div id="bg_black">
+    <div class="post-wrap">
+      <div class="post-question" padding>
+        <h1 ion-text text-center padding no-margin>{{postsData.question}}</h1>
+      </div>
+      <div class="post-textarea" padding>
+          <textarea placeholder="글을 작성해주세요." [(ngModel)]="postsData.contents" *ngIf="postsType == 'write'" [readonly]="typeCheck" autofocus></textarea>
+          <textarea (click)="update()" [(ngModel)]="postsData.contents" *ngIf="postsType != 'write'" [readonly]="typeCheck" autofocus></textarea>
+      </div>
     </div>
   </div>
 </ion-content>

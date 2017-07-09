@@ -44,7 +44,7 @@ $toolbar-background: rgba(0, 0, 0, 0.6); //헤더
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+$picker-ios-option-font-size: 18px;
 
 
 // App Material Design Variables
@@ -54,6 +54,10 @@ $toolbar-background: rgba(0, 0, 0, 0.6); //헤더
 
 $text-input-highlight-color-valid: transparent;
 $text-input-md-highlight-color-invalid: transparent;
+
+$picker-md-option-font-size: 18px;
+
+$tabs-border-color: color($colors, transparent);
 
 // App Windows Variables
 // --------------------------------------------------

@@ -15,17 +15,24 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-page-home, page-list, page-etc {
-  .toolbar-title {
-    background: url(../assets/images/logo.png) 0 0 no-repeat;
-    background-size: contain;
-    text-indent: -100vw;
-    &.toolbar-title-md {
-      background-position: 5% center;
-    }
-    &.toolbar-title-ios {
-      background-position: center center;
-    }
+// page-home, page-list, page-etc {
+//   .toolbar-title {
+//     background: url(../assets/images/logo.png) 0 0 no-repeat;
+//     background-size: contain;
+//     text-indent: -100vw;
+//     &.toolbar-title-md {
+//       background-position: 5% center;
+//     }
+//     &.toolbar-title-ios {
+//       background-position: center center;
+//     }
+//   }
+// }
+
+ion-header {
+  font-style: italic !important;
+  &::after {
+    background-image: none !important;
   }
 }
 
@@ -34,14 +41,18 @@ ion-content {
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
+  * {
+    font-style: italic;
+  }
 }
 
 #bg_black {
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   //background: url("../assets/images/bg_black.png") 0 0 repeat;
-}
-
-ion-header::after {
-  background-image: none !important;
 }
