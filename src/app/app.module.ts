@@ -15,8 +15,6 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AdMobFree } from '@ionic-native/admob-free';
 import { Network } from '@ionic-native/network';
 
-import { CalendarModule } from "ion2-calendar";
-
 import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -33,6 +31,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { SQLiteProvider } from '../providers/sqlite';
 import { LocalStorageProvider } from '../providers/local-storage';
+import { AdProvider } from '../providers/ad';
 
 
 //Firebase
@@ -60,7 +59,6 @@ export const firebaseConfig = {
     BackUpPage
   ],
   imports: [
-    CalendarModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
@@ -97,7 +95,8 @@ export const firebaseConfig = {
     SQLite,
     Network,
     SQLiteProvider,
-    LocalStorageProvider
+    LocalStorageProvider,
+    AdProvider
   ]
 })
 export class AppModule {}
