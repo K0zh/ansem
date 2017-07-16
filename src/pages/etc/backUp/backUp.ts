@@ -33,7 +33,7 @@ export class BackUpPage {
       this.postsList = data;
       let backUpStr = "";
       for(let i=0; i < this.postsList.length; i++) {
-        backUpStr += this.postsList[i].ID + "\t" + this.postsList[i].QUESTION + "\t" + this.postsList[i].CONTENTS + "\t" + this.postsList[i].REG_DT + "\n";
+        backUpStr += this.postsList[i].ID + "\t" + this.postsList[i].QUESTION + "\t" + this.postsList[i].CONTENTS + "\t" + this.postsList[i].REG_DT + "　\n";
       }
       this.file.writeFile(this.filePath, "ansem_bakup.txt",backUpStr,{replace : true});
       let alert = this.alertCtrl.create({
@@ -63,7 +63,7 @@ export class BackUpPage {
           text: "확인",
           handler: () => {
             this.file.readAsText(this.filePath, "ansem_bakup.txt").then(data => {
-              let restoreStr:Array<any> = data.split('\n');
+              let restoreStr:Array<any> = data.split('　\n');
               let restoreArr:Array<any> = [];
               restoreStr.pop();
               for(let i=0; i < restoreStr.length; i++) {
