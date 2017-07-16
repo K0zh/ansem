@@ -28,11 +28,9 @@ export class LocalStorageProvider {
           date: today_date
         }
         if(!val || today_date !== val.date) { // 오늘 date와 등록된 date가 다르면
-          const month: String = "m_1";  // 월 테스트
-          //const month: String = "m_" + moment().format("M");  // 월
-          const date: String = "d_1"; // 일 테스트
-          //const date: String = "d_" + today_date; // 일
-          const random: Number = Math.floor(Math.random() * 1) + 1; // 랜덤난수
+          const month: String = "m_" + moment().format("M");  // 월
+          const date: String = "d_" + today_date; // 일
+          const random: Number = Math.floor(Math.random() * 31) + 1; // 랜덤난수
           const question: String = "q_" + random; // 질문
           const query: any = '/questions/' + month + '/' + date + '/' + question;
           const selectQuestion = this.firebase_DB.list(query, { preserveSnapshot: true });
