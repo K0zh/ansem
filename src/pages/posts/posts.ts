@@ -3,7 +3,7 @@ import { NavController, NavParams, ViewController, ToastController, AlertControl
 import { Platform } from 'ionic-angular';
 import { SQLiteProvider } from '../../providers/sqlite';
 import { LocalStorageProvider } from '../../providers/local-storage';
-import { AdMobFree, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free';
+import { AdProvider } from '../../providers/ad';
 
 
 @Component({
@@ -11,9 +11,6 @@ import { AdMobFree, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free
   templateUrl: 'posts.html',
 })
 export class PostsPage {
-
-  @ViewChild('contents') contents:ElementRef;
-
   postsData: any;
   postsType: String;
   typeCheck: boolean;
@@ -32,7 +29,7 @@ export class PostsPage {
     private platform: Platform,
     private toastCtrl: ToastController,
     private alertCtrl: AlertController,
-    private admobFree: AdMobFree
+    private ad: AdProvider
   ) {
     localStorage.selectTodayBgImg().then((data) => {
       this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
@@ -55,26 +52,10 @@ export class PostsPage {
       contents: this.navParams.get("contents"), //글 내용
       reg_dt: this.navParams.get("reg_dt") //날짜
     }
-
-    this.setAdConfig();
   }
 
   ionViewWillLeave() {
-    this.admobFree.interstitial.show().then((s) => {
-      console.log("AdMob show : ", s);
-    }).catch(e => console.log(e));
-  }
-
-  setAdConfig() {
-    const interstitailConfig: AdMobFreeInterstitialConfig = {
-      id: 'ca-app-pub-4139703854678189/7440101759',
-      isTesting: true,
-      autoShow: false
-    };
-    this.admobFree.interstitial.config(interstitailConfig);
-    this.admobFree.interstitial.prepare().then((s) => {
-      console.log("AdMob prepare : ", s);
-    }).catch(e => console.log(e));
+    this.ad.showAdInterstitial();
   }
 
   dismiss() {
