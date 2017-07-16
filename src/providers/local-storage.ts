@@ -75,7 +75,6 @@ export class LocalStorageProvider {
           resolve(val);
         }
       }).catch((error) => {
-        console.log("===== 배경 구하기 Error =====");
         reject(error);
       });
     });

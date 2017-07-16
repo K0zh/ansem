@@ -74,7 +74,6 @@ export class PostsPage {
   }
 
   update() {
-    console.log("update")
     this.postsType = "update";
     this.typeCheck = false;
   }

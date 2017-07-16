@@ -29,10 +29,6 @@ export class QuestionPage {
       }).catch((error) => {
         console.error('Error getting token', error)
       });
-
-      // firebase_native.onTokenRefresh().subscribe((token: string) => {
-      //   console.log(`Got a new token ${token}`)
-      // });
     }
   }
 

@@ -39,15 +39,10 @@ export class ListPage {
   
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListPage');
   }
   
   ionViewWillEnter() {
     this.selectMonthPosts();
-  }
-  
-  ionViewWillUnload() {
-    console.log('ionViewWillUnload ListPage');
   }
   
   selectMonthPosts() {
@@ -62,7 +57,6 @@ export class ListPage {
     let posts_question;
     let posts_contents;
     let posts_type;
-    console.log(reg_dt);
 
     this.sqlite.selectCheckToday(reg_dt).then(data => {
       posts_question = data[0].QUESTION;

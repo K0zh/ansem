@@ -25,7 +25,6 @@ export class BackUpPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BackUpPage');
   }
 
   backUp() {

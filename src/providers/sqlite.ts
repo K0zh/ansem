@@ -38,36 +38,31 @@ export class SQLiteProvider {
           resolve(db);
         });
       } catch(err) {
-        reject({err: err})
+        reject({err: err});
       }
     });
     this.init();
   }
 
   init() {
-    console.log("DB init");
     this.query("create table if not exists POSTS_TB(ID INTEGER PRIMARY KEY AUTOINCREMENT, QUESTION TEXT, CONTENTS TEXT, REG_DT TEXT);", []).catch(err => {
-      console.log('Storage: Unable to create initial storage tables');
-    })
+      
+    });
   }
 
   insert(question: String, contents: String, reg_dt: String) {
-    console.log("insert DB");
     this.query("insert or replace into POSTS_TB(ID, QUESTION, CONTENTS, REG_DT) values ((select ID from POSTS_TB where REG_DT = ?),?, ?, ?);", [reg_dt, question, contents, reg_dt]);
   }
 
   update(contents: String, reg_dt: String) {
-    console.log("update DB");
     this.query("update POSTS_TB set CONTENTS = ? WHERE REG_DT = ?;",[contents, reg_dt]);
   }
 
   delete(reg_dt: String) {
-    console.log("delete DB");
     this.query("delete from POSTS_TB WHERE REG_DT = ?;",[reg_dt]);
   }
 
   select(id: String) {
-    console.log("DB select");
   }
 
   selectCheckToday(today: String): Promise<any> {
@@ -134,10 +129,9 @@ export class SQLiteProvider {
       try {
         this.dbPromise.then(db => {
           db.executeSql(query, params).then((data) => {
-            console.log("Executed SQL")
             resolve(data.rows);
           }).catch(e => {
-            console.log(e)
+            console.log(e);
             reject(e);
           });
         });

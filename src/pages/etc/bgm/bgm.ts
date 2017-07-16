@@ -15,7 +15,6 @@ export class BgmPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BgmPage');
   }
 
   dismiss() {

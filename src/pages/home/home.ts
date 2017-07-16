@@ -32,7 +32,6 @@ export class HomePage {
       this.question = data.question;
       this.writer = data.writer;
     }).catch((error) => {
-      console.log("====== (홈) 질문 로드 에러 ======");
       console.log(error);
     });
       
