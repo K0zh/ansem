@@ -6,7 +6,7 @@ import { Network } from '@ionic-native/network';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
-//import { AdProvider } from '../providers/ad';
+import { AdProvider } from '../providers/ad';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,8 +19,8 @@ export class MyApp {
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private network: Network,
-    private alertCtrl: AlertController
-    //,private adProvider: AdProvider
+    private alertCtrl: AlertController,
+    private adProvider: AdProvider
   ) {
     this.initializeApp();
   }
@@ -41,6 +41,8 @@ export class MyApp {
         alert.present();
         disconnectSubscription.unsubscribe();
       });
+
+      this.adProvider.setAdConfig();
 
       this.statusBar.styleDefault();
       setTimeout(() => {

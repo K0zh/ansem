@@ -13,6 +13,7 @@ export class QuestionPage {
     writer : "",
     question : "",
     etc : "",
+    date : new Date(),
     token : ""
   }
   constructor(
@@ -41,6 +42,9 @@ export class QuestionPage {
   }
 
   sendQuestion() {
+    if(this.submission.writer === "" || this.submission.question === "") {
+      return false;
+    }
     const item = this.firebase_DB.list('/submission');
     item.push(this.submission);
     this.dismiss();

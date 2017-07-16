@@ -11,7 +11,7 @@ export class AdProvider {
   constructor(
     private admobFree: AdMobFree
   ) {
-    this.setAdConfig();
+    
   }
 
   setAdConfig() {
@@ -31,7 +31,6 @@ export class AdProvider {
       console.log("AdMob show : ", s);
     }).catch((e) => {
       console.log("AdMob error : ", e);
-      this.setAdConfig();
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Renderer } from '@angular/core';
+import { Component, ElementRef, Renderer } from '@angular/core';
 import { NavController, NavParams, ViewController, ToastController, AlertController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { SQLiteProvider } from '../../providers/sqlite';
