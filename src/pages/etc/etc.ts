@@ -11,6 +11,9 @@ import { BackUpPage } from './backUp/backUp';
 import { LocalStorageProvider } from '../../providers/local-storage';
 import { SQLiteProvider } from '../../providers/sqlite';
 
+import { AppRate } from '@ionic-native/app-rate';
+
+
 @Component({
   selector: 'page-etc',
   templateUrl: 'etc.html',
@@ -26,7 +29,8 @@ export class EtcPage {
     public sqlite: SQLiteProvider,
     private alertCtrl: AlertController,
     private platform: Platform,
-    private localNotifications: LocalNotifications
+    private localNotifications: LocalNotifications,
+    private appRate: AppRate
   ) {
     localStorage.selectTodayBgImg().then((data) => {
       this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
@@ -56,7 +60,11 @@ export class EtcPage {
   }
   
   openAppRate() {
-    
+
+    this.appRate.preferences.storeAppURL = {
+      android: 'market://details?id=com.breadnine.ansem',
+    };
+    this.appRate.promptForRating(true);
   }
   
   openBackUp() {
