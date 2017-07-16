@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController, AlertController, Platform } from 'ionic-angular';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { NotificationPage } from './notification/notification';
 import { BgmPage } from './bgm/bgm';
@@ -24,7 +25,8 @@ export class EtcPage {
     public localStorage: LocalStorageProvider,
     public sqlite: SQLiteProvider,
     private alertCtrl: AlertController,
-    private platform: Platform
+    private platform: Platform,
+    private localNotifications: LocalNotifications
   ) {
     localStorage.selectTodayBgImg().then((data) => {
       this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
@@ -75,6 +77,9 @@ export class EtcPage {
         {
           text: "확인",
           handler: () => {
+            this.localNotifications.cancelAll();
+            this.localNotifications.clearAll();
+            this.localStorage.deleteNotification();
             this.sqlite.deleteDB();
             this.localStorage.clearStorage();
             this.platform.exitApp();

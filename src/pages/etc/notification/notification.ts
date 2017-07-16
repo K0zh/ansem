@@ -63,6 +63,7 @@ export class NotificationPage {
       this.localStorage.saveNotification(param);
     } else {
       this.localNotifications.cancelAll();
+      this.localNotifications.clearAll();
       this.localStorage.deleteNotification();
     }
     this.dismiss();
