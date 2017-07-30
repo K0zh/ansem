@@ -58,11 +58,10 @@ export class PostsPage {
   }
 
   ionViewWillLeave() {
-    
+    this.ad.showAdInterstitial();
   }
 
   dismiss() {
-    this.ad.showAdInterstitial();
     this.viewCtrl.dismiss();
   }
 
