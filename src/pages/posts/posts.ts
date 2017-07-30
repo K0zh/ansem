@@ -31,6 +31,7 @@ export class PostsPage {
     private alertCtrl: AlertController,
     private ad: AdProvider
   ) {
+
     localStorage.selectTodayBgImg().then((data) => {
       this.bg_url = "url(assets/images/bg/bg_img_" + data.bg_num + ".jpg)";
     }).catch((error) => {
@@ -52,13 +53,16 @@ export class PostsPage {
       contents: this.navParams.get("contents"), //글 내용
       reg_dt: this.navParams.get("reg_dt") //날짜
     }
+
+    
   }
 
   ionViewWillLeave() {
-    this.ad.showAdInterstitial();
+    
   }
 
   dismiss() {
+    this.ad.showAdInterstitial();
     this.viewCtrl.dismiss();
   }
 

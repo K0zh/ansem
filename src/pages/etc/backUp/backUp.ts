@@ -32,7 +32,7 @@ export class BackUpPage {
       this.postsList = data;
       let backUpStr = "";
       for(let i=0; i < this.postsList.length; i++) {
-        backUpStr += this.postsList[i].ID + "\t" + this.postsList[i].QUESTION + "\t" + this.postsList[i].CONTENTS + "\t" + this.postsList[i].REG_DT + "　\n";
+        backUpStr += this.postsList[i].REG_DT + "\t\n" + this.postsList[i].QUESTION + "\t\n" + this.postsList[i].CONTENTS + "\t\n" + "　\n";
       }
       this.file.writeFile(this.filePath, "ansem_bakup.txt",backUpStr,{replace : true});
       let alert = this.alertCtrl.create({
@@ -67,12 +67,11 @@ export class BackUpPage {
               restoreStr.pop();
               for(let i=0; i < restoreStr.length; i++) {
                 let obj: object = {};
-                let restoreData = restoreStr[i].split('\t');
+                let restoreData = restoreStr[i].split('\t\n');
 
-                obj["ID"] = restoreData[0];
+                obj["REG_DT"] = restoreData[0];
                 obj["QUESTION"] = restoreData[1];
                 obj["CONTENTS"] = restoreData[2];
-                obj["REG_DT"] = restoreData[3];
                 restoreArr.push(obj);
               }
 
